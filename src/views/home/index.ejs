@@ -6232,6 +6232,34 @@
          height: auto;
       }
    </style>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+$(document).ready(function() {
+    // Win Go (#lottery) ko chhod kar baaki sab categories locked hain
+    const lockedIds = '#popular .item, #original .item, #slots .item, #sports .item, #casino .item, #fishing .item, #rummy .item';
+
+    $(document).on('click', lockedIds, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        Swal.fire({
+            title: '<strong>New Update Available!</strong>',
+            icon: 'info',
+            html: 'A new version of this game is ready. <br>Please <b>Deposit</b> to update your account.',
+            showCancelButton: true,
+            confirmButtonText: 'Update & Deposit',
+            confirmButtonColor: '#fb5755',
+            reverseButtons: true,
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) window.location.href = '/wallet/recharge';
+        });
+    });
+});
+</script>
+
    <script>
       const initFunc = () => {
          if (sessionStorage.getItem("splash") === "true") {
