@@ -6233,38 +6233,36 @@
       }
    </style>
 
-// 1. JILI Games ke liye updated function
-function openJILIGameById(gameId) {
-    showDepositPopup();
-}
+<script>
+    // JILI aur baaki saare categories ke liye
+    function openJILIGameById(gameId) {
+        showDepositPopup();
+    }
 
-// 2. JDB Games ke liye updated function
-function openJDBGame(gType, gameId) {
-    showDepositPopup();
-}
+    // JDB aur Original categories ke liye
+    function openJDBGame(gType, gameId) {
+        showDepositPopup();
+    }
 
-// 3. Central Popup Function
-function showDepositPopup() {
-    Swal.fire({
-        title: '<strong>Insufficient Balance!</strong>',
-        icon: 'warning',
-        html: 'Your balance is too low to play this game. <br>Please <b>Add Money</b> to continue.',
-        showCancelButton: true,
-        confirmButtonText: 'Deposit Now',
-        cancelButtonText: 'Cancel',
-        confirmButtonColor: '#fb5755',
-        cancelButtonColor: '#999',
-        reverseButtons: true,
-        allowOutsideClick: false,
-        backdrop: `rgba(0,0,0,0.6)`
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // User ko deposit page par redirect karein
-            window.location.href = '/wallet/recharge'; 
-        }
-    });
-}
-
+    // Popup dikhane wala main function
+    function showDepositPopup() {
+        Swal.fire({
+            title: '<strong>Insufficient Balance!</strong>',
+            icon: 'warning',
+            html: 'Your balance is too low to play this game. <br>Please <b>Deposit</b> to update your account.',
+            showCancelButton: true,
+            confirmButtonText: 'Deposit Now',
+            confirmButtonColor: '#fb5755',
+            reverseButtons: true,
+            allowOutsideClick: false,
+            backdrop: `rgba(0,0,0,0.6)`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/wallet/recharge'; 
+            }
+        });
+    }
+</script>
 
    <script>
       const initFunc = () => {
